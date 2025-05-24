@@ -10,7 +10,7 @@ from matplotlib.transforms import Affine2D
 from matplotlib.patches import Circle
 from IPython.display import HTML
 
-with open('otimizacao_pistas/circuitos.json', 'r') as f:
+with open('circuitos.json', 'r') as f:
     data = json.load(f)
 pontos = np.array(data['Silverstone'])
 x = pontos[:, 0]

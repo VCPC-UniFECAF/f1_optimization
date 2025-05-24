@@ -11,7 +11,7 @@ from matplotlib.patches import Circle
 from IPython.display import HTML
 
 # Teste importar Json e plotagem
-with open('otimizacao_pistas/circuitos.json', 'r') as f:
+with open('circuitos.json', 'r') as f:
     data = json.load(f)
 pontos = np.array(data['Spa'])
 x = pontos[:, 0]
