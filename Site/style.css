@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: fantasy, cursive, sans-serif;
+    background: linear-gradient(to bottom, #3f3f3f, #1b1b1b);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  h2 {
+    color: #ffffff;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    margin-top: 300px;
+  }
+  .titulo {
+    text-align: center;
+    height: 60%;
+    font-size: 3rem;
+    margin-top: 40px;
+  }
+  
+  .intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .car {
+    position: absolute;
+    bottom: 10px;
+    left: -360px;
+    width: 400px;
+  }
+
+  #car1 {
+    top: 70%;
+  }
+  
+  .botao-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .meu-botao {
+    background-color: #e10600;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .meu-botao:hover {
+    background-color: #b00000;
+    transform: scale(1.05);
+  }
+  
+  .fotos-section {
+    padding: 40px 20px;
+    display: flex;
+    margin-top: 10%;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .fotos-container {
+    display: flex;
+    flex-direction: column;  /* Itens em coluna (vertical) */
+    align-items: center;     /* Centraliza horizontalmente */
+    gap: 30px;              /* Espaço entre os colaboradores */
+    padding: 20px;
+  }
+  
+  .foto {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;     /* Fotos redondas */
+    border: 3px solid #000000; /* Borda vermelha (opcional) */
+  }
+  
+  .foto:hover {
+    transform: scale(1.05);
+  }
+
+  .colaborador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espaço entre foto e nome */
+    width: 150px; /* Largura fixa para cada colaborador */
+  }
+  
+  .nome-colaborador {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem; /* Tamanho da fonte do nome */
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .Cargo {
+    color: #acacac;
+    font-family: Arial, sans-serif;
+    font-size: 0.6rem;  /* Corrigido: 'size' -> 'font-size' */
+    margin-top: 2px;
+    text-align: center;
+}
+
+.linkdin {
+    width: 30px;
+}
