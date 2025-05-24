@@ -1,73 +1,81 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Animação do carro (mantida como está)
-gsap.to("#car1", {
-  scrollTrigger: {
-    trigger: ".intro",
-    start: "top top",
-    end: "bottom top",
-    scrub: true
-  },
-  x: window.innerWidth + 700,
-  duration: 2,
-  ease: "power2.inOut"
-});
 
-// Animação das fotos dos colaboradores (versão melhorada)
-gsap.utils.toArray(".foto").forEach((foto, index) => {
-  gsap.from(foto, {
-    y: 50,
+const isMobile = window.innerWidth < 768;
+
+
+gsap.to("#car1", {
+    x: "+=1500",
+    scrollTrigger: {
+      trigger: ".intro",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      markers: false
+    },
+    ease: "none"
+  });
+
+
+gsap.utils.toArray(".colaborador").forEach((colab, index) => {
+  gsap.from(colab, {
+    y: isMobile ? 30 : 50,
     opacity: 0,
-    duration: 1,
+    duration: 0.8,
     ease: "back.out(1.2)",
     scrollTrigger: {
-      trigger: ".fotos-section", // Ativa quando a SEÇÃO entra na tela
-      start: "top 70%",         // Começa a animar quando 70% da seção está visível
-      end: "bottom 30%",
-      toggleActions: "play none none none", // Só anima uma vez
-      // markers: true // (opcional) para debug
+      trigger: colab,
+      start: isMobile ? "top 90%" : "top 80%",
+      end: "top 40%",
+      toggleActions: "play none none none",
+      invalidateOnRefresh: true
     },
-    delay: index * 0.1 // Efeito "stagger" (cada foto aparece um pouco depois da outra)
+    delay: index * 0.1
   });
 });
 
-// Animação das fotos (versão revisada)
-gsap.utils.toArray(".foto").forEach((foto, i) => {
-    // Reset: Garante que as fotos estão visíveis ANTES da animação (fallback)
-    gsap.set(foto, { opacity: 1, y: 0 }); 
-  
-    // Animação
-    gsap.from(foto, {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".fotos-section",
-        start: "top 80%",
-        end: "top 50%",
-        toggleActions: "play none none none",
-        // markers: true // (descomente para debug)
-      },
-      delay: i * 0.1 // Efeito de sequência
-    });
-  });
-
-  // Força a exibição inicial das imagens (caso o GSAP não as esteja encontrando)
-document.addEventListener("DOMContentLoaded", () => {
-  gsap.set(".foto", { opacity: 1, y: 0 });
+window.addEventListener("load", () => {
+  gsap.set(".colaborador", { opacity: 1, y: 0 });
 });
 
-gsap.utils.toArray(".colaborador").forEach((colab) => {
-    gsap.from(colab, {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: colab, // Animação dispara quando CADA colaborador entra na tela
-        start: "top 80%",
-        toggleActions: "play none none none"
-      }
-    });
+if (isMobile && !matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    gsap.set(".colaborador", { clearProps: "all" });
+  }
+
+const carAnimation = gsap.to("#car1", {
+    x: "+=1500",
+    scrollTrigger: {
+      trigger: ".intro",
+      start: "top top",
+      end: "bottom top",
+      scrub: true
+    },
+    ease: "none"
   });
+
+  window.addEventListener("resize", () => {
+    carAnimation.kill();
+    gsap.set("#car1", { x: -400 });
+    carAnimation.restart();
+  });
+
+document.getElementById('github-button')?.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      gsap.globalTimeline.pause();
+      setTimeout(() => {
+        window.open(this.href, '_blank');
+      }, 50);
+      e.preventDefault();
+    }
+  });
+
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.id === 'github-button') {
+          e.preventDefault();
+          window.open(this.href, '_blank', 'noopener');
+        }
+      });
+    });
+  }

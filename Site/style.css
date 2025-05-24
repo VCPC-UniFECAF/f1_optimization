@@ -20,6 +20,21 @@ body {
     font-size: 3rem;
     margin-top: 40px;
   }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
   
   .intro {
     height: 100vh;
@@ -75,9 +90,9 @@ body {
   
   .fotos-container {
     display: flex;
-    flex-direction: column;  /* Itens em coluna (vertical) */
-    align-items: center;     /* Centraliza horizontalmente */
-    gap: 30px;              /* Espaço entre os colaboradores */
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
     padding: 20px;
   }
   
@@ -85,8 +100,8 @@ body {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 50%;     /* Fotos redondas */
-    border: 3px solid #000000; /* Borda vermelha (opcional) */
+    border-radius: 50%;
+    border: 3px solid #000000;
   }
   
   .foto:hover {
@@ -97,14 +112,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Espaço entre foto e nome */
-    width: 150px; /* Largura fixa para cada colaborador */
+    gap: 10px;
+    width: 150px;
   }
   
   .nome-colaborador {
     color: white;
     font-family: Arial, sans-serif;
-    font-size: 1.1rem; /* Tamanho da fonte do nome */
+    font-size: 1.1rem;
     margin-top: 10px;
     text-align: center;
   }
@@ -112,7 +127,7 @@ body {
   .Cargo {
     color: #acacac;
     font-family: Arial, sans-serif;
-    font-size: 0.6rem;  /* Corrigido: 'size' -> 'font-size' */
+    font-size: 0.6rem;
     margin-top: 2px;
     text-align: center;
 }
@@ -120,3 +135,99 @@ body {
 .linkdin {
     width: 30px;
 }
+
+.imagem-botao {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .imagem-botao:hover {
+    transform: scale(1.05);
+  }
+
+
+/* ========== RESPONSIVO PARA CELULAR ========== */
+@media (max-width: 768px) {
+    body {
+      background: linear-gradient(to bottom, #2a2a2a, #121212);
+    }
+
+    .intro {
+      height: 80vh;
+    }
+  
+    .logo {
+      width: 80%;
+      max-width: 300px;
+    }
+  
+    .car {
+      width: 250px;
+      left: -200px;
+    }
+
+    h2 {
+      margin-top: 150px;
+      font-size: 1.8rem;
+    }
+
+    .fotos-section {
+      margin-top: 5%;
+      min-height: auto;
+      padding: 20px 10px;
+    }
+  
+    .fotos-container {
+      gap: 20px;
+    }
+  
+    .colaborador {
+      width: 120px;
+    }
+  
+    .foto {
+      width: 90px;
+      height: 90px;
+    }
+  
+    .nome-colaborador {
+      font-size: 1rem;
+    }
+  
+    .Cargo {
+      font-size: 0.6rem;
+    }
+  
+    .linkdin {
+      width: 25px;
+    }
+  
+    .meu-botao {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+    html {
+        scroll-behavior: auto;
+        overscroll-behavior-y: contain;
+      }
+      
+      .botao-section {
+        position: relative;
+        z-index: 1000;
+        transform: translateZ(100px);
+      }
+      
+      .meu-botao {
+        padding: 14px 28px;
+        font-size: 18px;
+        touch-action: manipulation;
+      }
+    }
+
+    .imagem-botao {
+        width: 150px;
+        max-width: 80%;
+      }
